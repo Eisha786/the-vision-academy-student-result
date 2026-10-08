@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vision Academy - Student Result Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- PAGE 1: SCHOOL INFORMATION -->
+    <div id="page1" class="page active">
+      <div class="hero-card">
+        <h1 class="main-title">THE VISION ACADEMY</h1>
+        <p class="tagline">Excellence in Education • Empowering Future Leaders</p>
+        <hr class="divider">
+        
+        <div class="info-section">
+          <h2>About Our Institution</h2>
+          <p>
+            Welcome to <strong>The Vision Academy</strong> portal. We are dedicated to delivering academic excellence, character building, and modern learning pathways tailored for both Science and Humanities students.
+          </p>
+          <div class="features-grid">
+            <div class="feature-box">
+              <h3>Science Stream</h3>
+              <p>Biology and Computer Science specializations with practical lab foundation.</p>
+            </div>
+            <div class="feature-box">
+              <h3>Humanities Stream</h3>
+              <p>Comprehensive Arts curriculum focused on critical thinking and general sciences.</p>
+            </div>
+            <div class="feature-box">
+              <h3>Modern Evaluation</h3>
+              <p>Instant digital progress reports and standardized grade assessment.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="goToPage(2)">Enter Result Portal →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 2: GROUP & ASSESSMENT SELECTION -->
+    <div id="page2" class="page">
+      <div class="school-header">
+        <h1>THE VISION ACADEMY</h1>
+        <p>Step 2: Enter Student Name, Group & Marks</p>
+      </div>
+
+      <div class="card">
+        <h2>Student Details & Academic Settings</h2>
+        <form id="resultForm">
+          <div class="form-grid">
+            <div class="form-group form-group-full">
+              <label for="studentName">Student Name</label>
+              <input type="text" id="studentName" placeholder="e.g. Amina Bilal" required>
+            </div>
+
+            <div class="dual-inputs form-group-full">
+              <div class="form-group">
+                <label for="groupSelect">Select Academic Group</label>
+                <select id="groupSelect" required>
+                  <option value="science-bio">Science (Biology Group)</option>
+                  <option value="science-cs">Science (Computer Science Group)</option>
+                  <option value="arts">Arts / Humanities Group</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="examTypeSelect">Select Assessment Type</label>
+                <select id="examTypeSelect" required>
+                  <option value="monthly">Monthly Test (Out of 30)</option>
+                  <option value="test-session">Test Session (Standard Board Max Marks)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Dynamic Input Fields -->
+            <div id="dynamicFields" class="form-grid-full"></div>
+
+            <div class="button-group form-group-full">
+              <button type="button" class="btn btn-secondary" onclick="goToPage(1)">← Back to Home</button>
+              <button type="submit" class="btn btn-primary">Generate Result →</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- PAGE 3: RESULT REPORT CARD -->
+    <div id="page3" class="page">
+      <div class="card result-card">
+        <div class="report-header">
+          <h1>THE VISION ACADEMY</h1>
+          <p class="subheading">Official Academic Progress Report Card</p>
+        </div>
+
+        <div class="student-meta">
+          <div><strong>Student Name:</strong> <span id="resName"></span></div>
+          <div><strong>Group:</strong> <span id="resGroup"></span></div>
+          <div><strong>Assessment:</strong> <span id="resExamType"></span></div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Maximum Marks</th>
+              <th>Marks Obtained</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="resTableBody">
+            <!-- Dynamic Table Rows -->
+          </tbody>
+        </table>
+
+        <div class="summary-grid">
+          <div class="summary-box">
+            <span>Total Marks</span>
+            <strong id="resTotal">0 / 0</strong>
+          </div>
+          <div class="summary-box">
+            <span>Percentage</span>
+            <strong id="resPercentage">0%</strong>
+          </div>
+          <div class="summary-box">
+            <span>Grade</span>
+            <strong id="resGrade">-</strong>
+          </div>
+          <div class="summary-box">
+            <span>Final Result</span>
+            <strong id="resStatus">-</strong>
+          </div>
+        </div>
+
+        <div class="button-group no-print">
+          <button class="btn btn-secondary" onclick="goToPage(2)">← Enter Another Student</button>
+          <button class="btn btn-print" onclick="window.print()">Print / Save PDF</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="funtion.js"></script>
+</body>
+</html>
